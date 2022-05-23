@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family: 'VT323', monospace;
+    background: black;
+    padding: 24px;
+    color: whitesmoke;
+    color: rgb(60, 224, 18);
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+#header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+h1 {
+    font-size: 64px;
+    margin: 0;
+}
+
+h2 {
+    /* background: rgb(60, 224, 18); */
+    /* color: black; */
+    /* padding: 2rem; */
+    text-transform: uppercase;
+}
+
+h3 {
+    text-transform: uppercase;
+}
+
+h4 > span {
+    display: none;
+}
+
+
+#blinky {
+    background: rgb(60, 224, 18);
+    width: 12px;
+    height: 2px;
+    position: relative;
+    top: -10px;
+    
+}
+
+button {
+    padding: 6px 8px;
+    margin: 0 8px 0 0;
+    text-transform: uppercase;
+    font-size: 1rem;
+    background: rgb(60, 224, 18);
+    border: none;
+    font-family: 'VT323', monospace;
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+button:hover {
+    text-decoration: underline;
+}
+
+button:active {
+    color:rgb(60, 224, 18);
+    background: black;
+    border: 1px solid rgb(60, 224, 18);
+}
+
+/* our ship section */
+#our-ship-section {
+    border: 1px solid rgb(60, 224, 18);
+    /* background: rgb(60, 224, 18); */
+    padding: 2rem;
+
+}
+
+#our-ship-form {
+    display: flex;
+    width: 100%;
+}
+
+#ship-name-input {
+    background: black;
+    padding: 1rem;
+    border: 1px solid rgb(60, 224, 18);
+    width: 66%;
+    margin: .25rem;
+}
+
+#ship-name-submit {
+    width: 34%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    border: 1px solid;
+    margin: .25rem .25rem .25rem 0; 
+    background: black;
+}
+
+input, input::placeholder {
+    color: rgb(60, 224, 18);
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
+}
+
+#our-ship-header {
+    margin: 0 1rem 1rem 0;
+}
+
+
+#our-ship-hull {
+    margin: 0 1rem 1rem 0;
+    padding: 0;
+    /* border-bottom: 1px dashed; */
+    background: black;
+}
+
+#our-ship-hull-current {
+    transition: color .5s;
+}
+
+#ship-weapons {
+    margin: 0 1rem 0 0;
+    padding: 0;
+    background: black;
+    
+}
+
+/* war report section */
+#warReport {
+    /* padding: 1rem; */
+    /* background: #333; */
+}
+
+#message-p {
+    font-size: 1rem;
+}
+
+
+#progress {
+    /* background: #333; */
+    margin: .5rem 0;
+    padding: 2rem;
+    border: 1px solid rgb(60, 224, 18);
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: 250px;
+
+}
+
+#actions {
+    margin: 0;
+    padding: 0;
+}

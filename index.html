@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="battle.css">
+    <title>SPACEWARS</title>
+</head>
+<body>
+    <div id="header">
+        <h1>SPACEWARS</h1>
+        <div id="blinky"></div>
+    </div>
+    <div id="our-ship-section">
+        <div id="our-ship-form">
+            <input type="text" id="ship-name-input" placeholder="Enter the name of your ship"  />
+            <div id="ship-name-submit"><p>Create Ship</p></div>
+        </div>
+    </div>
+    <div id="progress">
+        <div id="warReport">
+            <p id="message-p" className="pastMessage"></p>
+        </div>
+        <div id="actions"></div>
+    </div>
+    
+    <script type="module" src="battle.js"></script>
+</body>
+</html>
