@@ -2,7 +2,8 @@ import {
 	hideButtons
 } from "./Buttons.mjs";
 
-const DELAY = 10;
+const LETTER_DELAY = 20;
+const WORD_DELAY = 60;
 
 const warReport = document.querySelector('#warReport');
 const messageP = document.querySelector('#message-p');
@@ -18,39 +19,48 @@ export function resetMessage() {
 	hideButtons();
 }
 
-export function report(message, nextFunction) {
+export function report(message, callback) {
 	if (message.length === 0) return;
-	console.log('report initiated');
 	messages.push(message);
-	controlDeliverySpeed(message)
-		.then(() => {
-			if (nextFunction) {
-				nextFunction();
-			}
-		});
+	const messageWords = message.split(' ');
+	iterateWords(messageWords, 0, callback);
 }
 
-function controlDeliverySpeed(message) {
+const delay = t => new Promise(resolve => setTimeout(resolve, t));
+
+const unspoolCurrentWord = word => {
 	return new Promise((resolve, reject) => {
 		try {
-			let counter = 0;
+			console.log(word);
+			let letterCounter = 0;
 			const letterInterval = setInterval(() => {
-				if (message[counter] !== " ") {
-					messageP.innerText += message[counter];
-					counter++
-				} else {
-					messageP.innerText += message.slice(counter, counter + 2)
-					counter += 2
+				if (letterCounter === 0) {
+					messageP.innerText += ` ${word[letterCounter]}`;
 				}
-				// messageP.textContent += message[i];
-				// i++;
-				if (counter >= message.length) {
+				else {
+					messageP.innerText += word[letterCounter];
+				}
+				letterCounter++;
+				if (letterCounter >= word.length) {
 					clearInterval(letterInterval);
-					resolve('message delivered');
+					resolve('word unspooled');
 				}
-			}, DELAY);
-		} catch (error) {
+			}, LETTER_DELAY);
+		}
+		catch (error) {
 			reject(`Error: ${error}`);
+		}
+	});
+}
+
+const iterateWords = (messageWords, index, callback) => {
+	if (index === messageWords.length) return;
+	unspoolCurrentWord(messageWords[index])
+	.then(() => delay(WORD_DELAY))
+	.then(() => iterateWords(messageWords, index + 1))
+	.then(() => {
+		if (callback) {
+			callback();
 		}
 	});
 }
