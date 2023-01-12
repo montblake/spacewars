@@ -6,7 +6,7 @@ const LETTER_DELAY = 20;
 const WORD_DELAY = 60;
 
 const warReport = document.querySelector('#warReport');
-const messageP = document.querySelector('#message-p');
+const messageElement = document.querySelector('#message-element');
 
 
 export function showWarReport() {
@@ -15,7 +15,7 @@ export function showWarReport() {
 
 export function resetMessage() {
 	message = "";
-	messageP.innerText = "";
+	messageElement.innerText = "";
 	hideButtons();
 }
 
@@ -35,10 +35,10 @@ const unspoolCurrentWord = word => {
 			let letterCounter = 0;
 			const letterInterval = setInterval(() => {
 				if (letterCounter === 0) {
-					messageP.innerText += ` ${word[letterCounter]}`;
+					messageElement.innerText += ` ${word[letterCounter]}`;
 				}
 				else {
-					messageP.innerText += word[letterCounter];
+					messageElement.innerText += word[letterCounter];
 				}
 				letterCounter++;
 				if (letterCounter >= word.length) {

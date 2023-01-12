@@ -45,15 +45,6 @@ h4 > span {
 }
 
 
-#blinky {
-    background: rgb(60, 224, 18);
-    width: 12px;
-    height: 2px;
-    position: relative;
-    top: -10px;
-    
-}
-
 button {
     padding: 6px 8px;
     margin: 0 8px 0 0;
@@ -106,6 +97,7 @@ button:active {
     border: 1px solid;
     margin: .25rem .25rem .25rem 0; 
     background: black;
+    color: rgb(60, 224, 18);
 }
 
 input, input::placeholder {
@@ -143,7 +135,7 @@ input, input::placeholder {
     /* background: #333; */
 }
 
-#message-p {
+#message-element {
     font-size: 1rem;
 }
 
